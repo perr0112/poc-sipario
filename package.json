@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^8.0.1"
+  },
+  "dependencies": {
+    "@perr0112/modular-load": "^1.0.0"
   }
 }
