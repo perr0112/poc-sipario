@@ -12,6 +12,7 @@
     "vite": "^8.0.1"
   },
   "dependencies": {
-    "@perr0112/modular-load": "^1.0.0"
+    "@perr0112/modular-load": "^1.0.1",
+    "gsap": "^3.14.2"
   }
 }
