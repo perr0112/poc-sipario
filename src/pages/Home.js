@@ -1,4 +1,4 @@
-import { Module } from "@perr0112/modular-load";
+import { Module } from "@perr0112/sipario";
 
 export class Home extends Module {
   init() {

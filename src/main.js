@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { Modular } from "@perr0112/modular-load";
+import { Modular } from "@perr0112/sipario";
 
 import { Home } from "./pages/Home.js";
 import { About } from "./pages/About.js";
