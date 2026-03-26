@@ -13,23 +13,19 @@ const $modular = new Modular({
 });
 
 const overlay = document.querySelector('.transition-overlay');
-const container = document.querySelector('[data-load-container]');
 
 $modular.on('leave', async () => {
-    return gsap.to(overlay, {
-        y: "0%",
-        duration: 0.8,
-        ease: "expo.inOut",
-        onStart: () => {
-            gsap.to(container, { opacity: 0, duration: 0.4 });
-        }
-    });
+    return gsap.fromTo(overlay, 
+        { y: "100%" }, 
+        { y: "0%", duration: 0.8, ease: "expo.inOut" }
+    );
 });
 
-$modular.on('enter', async () => {
-    const tl = gsap.timeline();
+$modular.on('transition', async ({ from, to }) => {
+    gsap.set(from, { display: 'none' });
+    gsap.set(to, { opacity: 0, y: 30 });
 
-    gsap.set(container, { opacity: 0, y: 10 });
+    const tl = gsap.timeline();
 
     return tl
         .to(overlay, {
@@ -37,13 +33,13 @@ $modular.on('enter', async () => {
             duration: 0.8,
             ease: "expo.inOut"
         })
-        .to(container, {
+        .to(to, {
             opacity: 1,
             y: 0,
             duration: 0.6,
+            ease: "power2.out",
             clearProps: "all"
-        }, "-=0.4") 
-        .set(overlay, { y: "100%" });
+        }, "-=0.4");
 });
 
 $modular.init();
